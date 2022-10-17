@@ -2,16 +2,20 @@ import React, { useState } from 'react'
 
 const TextForm = (props) => {
 
-    const [mytext, setmytext] = useState('enter the text')
+    const [mytext, setmytext] = useState('')
 
 
-    const clickme = () => {
+    const handleupclick = () => {
         const newtext =mytext.toUpperCase()
        setmytext(newtext) 
     }
 
-    const cliclowkme = () => {
+    const handleloclick = () => {
         const newtext =mytext.toLowerCase()
+       setmytext(newtext) 
+    }
+    const handleclrclick = () => {
+        const newtext =''
        setmytext(newtext) 
     }
 
@@ -25,13 +29,14 @@ const TextForm = (props) => {
 <div className="mb-3">
   <textarea className="form-control" value={mytext} onChange={changeme} id="mybox" rows="14"></textarea>
 </div>
-<button className="btn btn-primary mx-2" onClick={clickme}>conver to uppercase</button>
-<button className="btn btn-primary mx-2" onClick={cliclowkme}>conver to lowercase</button>
+<button className="btn btn-primary mx-2" onClick={handleupclick}>Conver to Uppercase</button>
+<button className="btn btn-primary mx-2" onClick={handleloclick}>Conver to Lowercase</button>
+<button className="btn btn-primary " onClick={handleclrclick}>Clear Text</button>
     </div>
     <div className="container my-4">
         <h1>your text summary</h1>
         <p>{mytext.split(" ").length} words and {mytext.length} characters</p>
-        <p>preview</p>
+        <h2>preview</h2>
         <p>{mytext}</p>
     </div>
   </>
